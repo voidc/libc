@@ -6,9 +6,22 @@ pub type nlink_t = u64;
 pub type suseconds_t = i64;
 pub type wchar_t = i32;
 pub type greg_t = u64;
+pub type __rlimit_resource_t = ::c_int;
 pub type __u64 = u64;
 
 s! {
+    pub struct ipc_perm {
+        pub __ipc_perm_key: ::key_t,
+        pub uid: ::uid_t,
+        pub gid: ::gid_t,
+        pub cuid: ::uid_t,
+        pub cgid: ::gid_t,
+        pub mode: ::mode_t,
+        pub __seq: ::c_int,
+        __pad1: ::c_long,
+        __pad2: ::c_long,
+    }
+
     pub struct stat {
         pub st_dev: ::dev_t,
         pub st_ino: ::ino_t,
